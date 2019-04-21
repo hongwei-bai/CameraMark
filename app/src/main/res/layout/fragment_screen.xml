@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".ScreenFragment">
+
+    <TextView
+        android:id="@+id/textViewLarge"
+        android:layout_width="@dimen/dp_360"
+        android:layout_height="@dimen/dp_640"
+        android:layout_gravity="start|bottom"
+        android:background="@color/colorAccent"
+        android:text="1080 x 1920"
+        android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/textViewMiddle"
+        android:layout_width="@dimen/dp_355"
+        android:layout_height="@dimen/dp_620"
+        android:layout_gravity="start|bottom"
+        android:background="@color/colorPrimaryDark"
+        android:text="1080- x 1920-"
+        android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/textViewSmall"
+        android:layout_width="@dimen/dp_180"
+        android:layout_height="@dimen/dp_320"
+        android:layout_gravity="start|bottom"
+        android:background="@color/colorMaterialCyan"
+        android:text="half: 540 x 960"
+        android:textColor="@color/colorWhite" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/textViewLarge"-->
+    <!--android:layout_width="@dimen/dp_305"-->
+    <!--android:layout_height="@dimen/dp_542"-->
+    <!--android:layout_gravity="start|bottom"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="dp_305 x dp_542"-->
+    <!--android:textColor="@color/colorWhite" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textViewMiddle"-->
+    <!--android:layout_width="@dimen/dp_303"-->
+    <!--android:layout_height="@dimen/dp_540"-->
+    <!--android:layout_gravity="start|bottom"-->
+    <!--android:background="@color/colorPrimaryDark"-->
+    <!--android:text="dp_303 x dp_540"-->
+    <!--android:textColor="@color/colorWhite" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textViewSmall"-->
+    <!--android:layout_width="@dimen/dp_157"-->
+    <!--android:layout_height="@dimen/dp_271"-->
+    <!--android:layout_gravity="start|bottom"-->
+    <!--android:background="@color/colorMaterialCyan"-->
+    <!--android:text="dp_157 x dp_271"-->
+    <!--android:textColor="@color/colorWhite" />-->
+
+    <TextView
+        android:id="@+id/textViewInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:textColor="@color/colorDecentBlack"
+        android:textSize="@dimen/sp_16" />
+</FrameLayout>

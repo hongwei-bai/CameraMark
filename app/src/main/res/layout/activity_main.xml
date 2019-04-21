@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:dbgMsgView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:text="Hello Camera"
+        android:textColor="#FFFFFF" />
+
+    <include layout="@layout/layout_sel_camera" />
+
+    <include layout="@layout/layout_sel_res" />
+
+    <include layout="@layout/layout_sel_orientation" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_110"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_camera"
+        android:visibility="invisible"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+    <com.jd.aibdp.dbgmsgview.DbgMsgView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        dbgMsgView:hide_code="1212"
+        dbgMsgView:max_line="15"
+        dbgMsgView:show_code="12112"
+        dbgMsgView:text_size="14dp" />
+</FrameLayout>

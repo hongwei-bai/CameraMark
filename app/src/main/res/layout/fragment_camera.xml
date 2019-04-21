@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraFragment">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonCamera2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_110"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_more"
+        android:visibility="gone"
+        app:layout_anchor="@id/surfaceView"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonOrientation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_160"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_rotate"
+        android:visibility="gone"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/dp_210"
+        android:layout_marginTop="@dimen/dp_34"
+        android:clickable="true"
+        android:elevation="50dp"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_camera"
+        android:visibility="gone"
+        app:rippleColor="@color/colorPrimaryDark" />
+</FrameLayout>

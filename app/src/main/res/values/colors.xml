@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <color name="colorMaterialCyan">#FF81CAC3</color>
+    <color name="colorMaterialCyan60">#AA81CAC3</color>
+    <color name="colorDecentBlack">#404040</color>
+
+    <color name="topeka_primary">#00bad2</color>
+    <color name="theme_green_primary">#1de9b6</color>
+</resources>
