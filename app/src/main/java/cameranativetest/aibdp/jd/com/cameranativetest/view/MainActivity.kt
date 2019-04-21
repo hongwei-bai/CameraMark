@@ -1,10 +1,9 @@
-package cameranativetest.aibdp.jd.com.cameranativetest
+package cameranativetest.aibdp.jd.com.cameranativetest.view
 
 import android.Manifest
 import android.animation.*
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
-import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -18,12 +17,12 @@ import android.support.v4.view.ViewPropertyAnimatorListenerAdapter
 import android.support.v4.view.animation.FastOutLinearInInterpolator
 import android.support.v4.view.animation.FastOutSlowInInterpolator
 import android.support.v7.app.AppCompatActivity
-import android.util.AttributeSet
 import android.util.Log
 import android.util.Property
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.widget.FrameLayout
+import cameranativetest.aibdp.jd.com.cameranativetest.R
 import com.jd.aibdp.dbgmsgview.DbgMsgView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_camera.*
@@ -42,8 +41,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @SuppressLint("RestrictedApi")
     private fun initView() {
         textView.text = "resources.configuration.orientation: " + resources.configuration.orientation
 
@@ -94,7 +91,6 @@ class MainActivity : AppCompatActivity() {
         fragmentManager.beginTransaction().replace(R.id.container, cameraFragment).commitAllowingStateLoss()
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun loadScreenFragment() {
         screenFragment ?: let {
             screenFragment = ScreenFragment()
@@ -107,10 +103,10 @@ class MainActivity : AppCompatActivity() {
         var centerY = (startView.top + startView.bottom) / 2 //- startView.height
         val endRadius = Math.hypot(centerX.toDouble(), centerY.toDouble()).toFloat()
 
-        Log.i("aaaa", "x: ${startView.left}, ${startView.right}")
-        Log.i("aaaa", "y: ${startView.top}, ${startView.bottom}")
-        Log.i("aaaa", "center: $centerX, $centerY")
-        Log.i("aaaa", "r: ${startView.width.toFloat()} -> $endRadius")
+//        Log.i("aaaa", "x: ${startView.left}, ${startView.right}")
+//        Log.i("aaaa", "y: ${startView.top}, ${startView.bottom}")
+//        Log.i("aaaa", "center: $centerX, $centerY")
+//        Log.i("aaaa", "r: ${startView.width.toFloat()} -> $endRadius")
 
         val accentColor = ContextCompat.getColor(this, R.color.topeka_primary)
         var colorChange = ObjectAnimator.ofInt(targetView,
@@ -120,34 +116,36 @@ class MainActivity : AppCompatActivity() {
 //                    interpolator = this@QuizActivity.interpolator
                 }
 
-        var circularReveal: Animator = ViewAnimationUtils.createCircularReveal(
-                targetView, centerX, centerY, startView.width.toFloat() / 2, endRadius)
-                .apply {
-                    interpolator = FastOutLinearInInterpolator()
-
-                    addListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator) {
-//                            icon?.visibility = View.GONE
-                            removeListener(this)
-                        }
-                    })
-                }
-
         fragmentManager.beginTransaction().replace(R.id.container, screenFragment).commitAllowingStateLoss()
-        ViewCompat.animate(startView)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            var circularReveal: Animator = ViewAnimationUtils.createCircularReveal(
+                    targetView, centerX, centerY, startView.width.toFloat() / 2, endRadius)
+                    .apply {
+                        interpolator = FastOutLinearInInterpolator()
+
+                        addListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator) {
+//                            icon?.visibility = View.GONE
+                                removeListener(this)
+                            }
+                        })
+                    }
+            ViewCompat.animate(startView)
 //                .scaleX(1.2f)
 //                .scaleY(1.2f)
 //                .alpha(1.2f)
-                .setInterpolator(FastOutSlowInInterpolator())
-                .setListener(object : ViewPropertyAnimatorListenerAdapter() {
-                    override fun onAnimationEnd(view: View?) {
-                        container.visibility = View.VISIBLE
-                    }
-                })
-                .start()
-        with(AnimatorSet()) {
-            play(circularReveal).with(colorChange)
-            start()
+                    .setInterpolator(FastOutSlowInInterpolator())
+                    .setListener(object : ViewPropertyAnimatorListenerAdapter() {
+                        override fun onAnimationEnd(view: View?) {
+                            container.visibility = View.VISIBLE
+                        }
+                    })
+                    .start()
+            with(AnimatorSet()) {
+                play(circularReveal).with(colorChange)
+                start()
+            }
         }
     }
 

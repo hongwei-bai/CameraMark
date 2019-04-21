@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CameraFragment">
+    tools:context=".view.CameraFragment">
 
     <SurfaceView
         android:id="@+id/surfaceView"
@@ -16,13 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_110"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="110dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_more"
         android:visibility="gone"
+        app:fabSize="mini"
         app:layout_anchor="@id/surfaceView"
         app:rippleColor="@color/colorPrimaryDark" />
 
@@ -31,13 +32,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_160"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="160dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_rotate"
         android:visibility="gone"
+        app:fabSize="mini"
         app:rippleColor="@color/colorPrimaryDark" />
 
     <android.support.design.widget.FloatingActionButton
@@ -45,12 +47,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_210"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="210dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_camera"
         android:visibility="gone"
+        app:fabSize="mini"
         app:rippleColor="@color/colorPrimaryDark" />
 </FrameLayout>

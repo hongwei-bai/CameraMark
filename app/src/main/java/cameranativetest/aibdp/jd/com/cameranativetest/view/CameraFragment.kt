@@ -1,4 +1,4 @@
-package cameranativetest.aibdp.jd.com.cameranativetest
+package cameranativetest.aibdp.jd.com.cameranativetest.view
 
 import android.annotation.SuppressLint
 import android.app.Fragment
@@ -14,6 +14,10 @@ import android.view.SurfaceHolder
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import cameranativetest.aibdp.jd.com.cameranativetest.R
+import cameranativetest.aibdp.jd.com.cameranativetest.controller.CameraHelper
+import cameranativetest.aibdp.jd.com.cameranativetest.model.ImageUtil
+import cameranativetest.aibdp.jd.com.cameranativetest.ifNotNull
 import com.jd.aibdp.dbgmsgview.DbgMsgView
 import kotlinx.android.synthetic.main.fragment_camera.*
 import java.lang.ref.SoftReference
@@ -93,6 +97,7 @@ class CameraFragment : Fragment() {
     }
 
     override fun onDestroy() {
+        Log.i("Crash", "fragment onDestory called.")
         releaseSurface()
         cameraHelper.release()
         super.onDestroy()
@@ -301,7 +306,7 @@ class CameraFragment : Fragment() {
         }
 
         override fun surfaceDestroyed(surfaceHolder: SurfaceHolder) {
-            cameraHelper.release()
+//            cameraHelper.release()
             Log.i(TAG, "surfaceDestroyed")
             DbgMsgView.postMessage("surfaceDestroyed")
         }

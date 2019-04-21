@@ -1,4 +1,4 @@
-package cameranativetest.aibdp.jd.com.cameranativetest
+package cameranativetest.aibdp.jd.com.cameranativetest.view
 
 import android.content.Context
 import android.graphics.Canvas

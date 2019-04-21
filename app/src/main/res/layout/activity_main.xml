@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <FrameLayout
         android:id="@+id/container"
@@ -31,12 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_gallery"
+        app:fabSize="mini"
         app:rippleColor="@color/colorPrimaryDark" />
 
     <android.support.design.widget.FloatingActionButton
@@ -44,12 +45,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_60"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_info_details"
+        app:fabSize="mini"
         app:rippleColor="@color/colorPrimaryDark" />
 
     <android.support.design.widget.FloatingActionButton
@@ -57,13 +59,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginEnd="@dimen/dp_110"
-        android:layout_marginTop="@dimen/dp_34"
+        android:layout_marginEnd="110dp"
+        android:layout_marginTop="34dp"
         android:clickable="true"
         android:elevation="50dp"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_camera"
         android:visibility="invisible"
+        app:fabSize="mini"
         app:rippleColor="@color/colorPrimaryDark" />
 
     <com.jd.aibdp.dbgmsgview.DbgMsgView

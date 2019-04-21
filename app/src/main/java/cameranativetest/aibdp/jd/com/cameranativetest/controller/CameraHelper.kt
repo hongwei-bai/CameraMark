@@ -1,4 +1,4 @@
-package cameranativetest.aibdp.jd.com.cameranativetest
+package cameranativetest.aibdp.jd.com.cameranativetest.controller
 
 import android.content.Context
 import android.hardware.Camera
@@ -27,6 +27,9 @@ class CameraHelper {
         private val RATIO_15_9: Int = (15f * RATIO_ACCURACY / 9f).toInt()
         private val RATIO_4_3: Int = (4f * RATIO_ACCURACY / 3f).toInt()
     }
+
+    // Devices on some older versions require stopPreview while switching resolutions.
+    private var needStopWhileSwitchingResolution = false
 
     private var numberOfCameras: Int = 0
     private var faceBackCameraId: Int = 0
@@ -99,13 +102,13 @@ class CameraHelper {
         }
 
     //获取相机参数
-    val supportResolutions: List<Camera.Size>
-        get() {
-            camera?.let {
-                val parameters = it.parameters
-                return parameters.supportedPreviewSizes
-            }
-        }
+//    val supportResolutions: List<Camera.Size>
+//        get() {
+//            camera?.let {
+//                val parameters = it.parameters
+//                return parameters.supportedPreviewSizes
+//            }
+//        }
 
     fun init() {
         Log.i(TAG, "init");
@@ -183,21 +186,31 @@ class CameraHelper {
                 //            }
 
                 //设置预览大小
+                camera.takeIf { needStopWhileSwitchingResolution }?.stopPreview()
                 previewSize = parameters.previewSize
                 previewSize?.let { previewSize ->
                     previewSize.width = 1920
                     previewSize.height = 1080
                     parameters.setPreviewSize(previewSize.width, previewSize.height)
-                    //            parameters.setPictureSize(photoSize.getWidth(), photoSize.getHeight());
+//                                parameters.setPictureSize(photoSize.getWidth(), photoSize.getHeight());
                 }
 
                 //设置相机参数
                 camera.parameters = parameters
+            } catch (error: IOException) {
+                error.printStackTrace()
+                Log.e(TAG, "Error setting camera preview: " + error.message)
+            } catch (ignore: Exception) {
+                ignore.printStackTrace()
+                Log.e(TAG, "Error starting camera preview: " + ignore.message)
+                ignore.message?.takeIf { it.contains("setParameters failed") }?.apply { needStopWhileSwitchingResolution = true }
+            }
+
+            try {
                 //设置surfaceHolder
                 camera.setPreviewDisplay(surfaceHolder)
                 //开启预览
                 camera.startPreview()
-
             } catch (error: IOException) {
                 error.printStackTrace()
                 Log.e(TAG, "Error setting camera preview: " + error.message)
@@ -216,7 +229,9 @@ class CameraHelper {
 
     fun switchResolution(previewSize: Camera.Size?) {
         Log.i(TAG, "switchResolution");
+        camera?.takeIf { needStopWhileSwitchingResolution }?.stopPreview()
         previewSize?.let { switchResolution(previewSize.width, previewSize.height) }
+        camera?.takeIf { needStopWhileSwitchingResolution }?.startPreview()
     }
 
     fun switchResolution(width: Int, height: Int) {

@@ -1,4 +1,4 @@
-package cameranativetest.aibdp.jd.com.cameranativetest
+package cameranativetest.aibdp.jd.com.cameranativetest.model
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

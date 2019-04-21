@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".ScreenFragment">
+    tools:context=".view.ScreenFragment">
 
     <TextView
         android:id="@+id/textViewLarge"
-        android:layout_width="@dimen/dp_360"
-        android:layout_height="@dimen/dp_640"
+        android:layout_width="360dp"
+        android:layout_height="640dp"
         android:layout_gravity="start|bottom"
         android:background="@color/colorAccent"
         android:text="1080 x 1920"
@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/textViewMiddle"
-        android:layout_width="@dimen/dp_355"
-        android:layout_height="@dimen/dp_620"
+        android:layout_width="355dp"
+        android:layout_height="620dp"
         android:layout_gravity="start|bottom"
         android:background="@color/colorPrimaryDark"
         android:text="1080- x 1920-"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/textViewSmall"
-        android:layout_width="@dimen/dp_180"
-        android:layout_height="@dimen/dp_320"
+        android:layout_width="180dp"
+        android:layout_height="320dp"
         android:layout_gravity="start|bottom"
         android:background="@color/colorMaterialCyan"
         android:text="half: 540 x 960"
@@ -66,5 +66,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
         android:textColor="@color/colorDecentBlack"
-        android:textSize="@dimen/sp_16" />
+        android:textSize="16sp" />
 </FrameLayout>
